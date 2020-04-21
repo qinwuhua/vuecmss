@@ -33,7 +33,8 @@ module.exports = {
 			{test:/\.(jpg|png|gif|bmp|jepg)$/,use:'url-loader?limit=10240&name=[hash:8]-[name].[ext]'},
 			{test:/\.(ttf|eot|svg|woff|woff2)$/,use:'url-loader'},
 			{test:/\.js$/,use:'babel-loader',exclude:/node_modules/},
-			{test:/\.vue$/,use:'vue-loader'}
+			{test:/\.vue$/,use:'vue-loader'},
+			{test:/\.scss$/, use: ['style-loader','css-loader','sass-loader']}
 			
 			
 		]
