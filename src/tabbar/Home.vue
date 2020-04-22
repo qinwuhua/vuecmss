@@ -10,22 +10,29 @@
 		
 		<!-- 9-6宫格 -->
 		<ul class="mui-table-view mui-grid-view mui-grid-9">
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<router-link to="/home/newlist">
 					<span class="mui-icon mui-icon-list"></span>
-					<div class="mui-media-body">新闻资讯</div></a></li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+					<div class="mui-media-body">新闻资讯</div>
+				</router-link></li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
 					<span class="mui-icon mui-icon-image"><span class="mui-badge">5</span></span>
 					<div class="mui-media-body">图片分享</div></a></li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
 					<span class="mui-icon mui-icon-star"></span>
 					<div class="mui-media-body">商品购买</div></a></li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
 					<span class="mui-icon mui-icon-chat"></span>
 					<div class="mui-media-body">留言反馈</div></a></li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
 					<span class="mui-icon mui-icon-videocam"></span>
 					<div class="mui-media-body">视频专区</div></a></li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
 					<span class="mui-icon mui-icon-phone"></span>
 					<div class="mui-media-body">联系我们</div></a></li>
 			
@@ -47,8 +54,7 @@
 		},
 		methods:{
 			getLunbo(){
-				this.$http.get("http://127.0.0.1:7001/test/getlunbo").then(result =>{
-					console.log(result.body);
+				this.$http.get("test/getlunbo").then(result =>{
 					if(result.body.code === 1) {
 						this.lunbolist=result.body.data;
 						

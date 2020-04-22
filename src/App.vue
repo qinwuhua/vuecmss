@@ -1,6 +1,10 @@
 <template>
 	<div class="app-contain">
-		<mt-header fixed title="武华购物APP"></mt-header>
+		<mt-header fixed title="武华购物APP">
+			<span slot="left" v-show="flag">
+				<mt-button icon="back">返回</mt-button>
+			</span>
+		</mt-header>
 		
 		<transition>
 			<router-view></router-view>
@@ -29,15 +33,33 @@
 </template>
 
 <script>
+	
 	export default{
 		data(){
 			return{
-				msg:'123'
+				msg:'123',
+				flag:false
 			}
 		},
 		methods:{
-			show(){
-				console.log("方法")
+			goBack(){
+				this.$router.go(-1)
+			}
+		},
+		created() {
+			if(this.$router.path === 'home'){
+				this.flag=false;
+			}else{
+				this.flag=true;
+			}
+		},
+		watch:{
+			"$router.path":function(newVal){
+				if(newVal === '/home'){
+					this.flag=false;
+				}else{
+					this.flag=true;
+				}
 			}
 		}
 	}
@@ -46,6 +68,7 @@
 <style scoped="scoped">
 	.app-contain{
 		padding-top: 40px;
+		padding-bottom: 50px;
 		overflow-x: hidden;
 	}
 	
